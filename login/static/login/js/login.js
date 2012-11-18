@@ -28,14 +28,13 @@ var AppView = Backbone.View.extend({
                 _500px.api('/users/'+user_id+'/followers', function (response) {
                     var followers = response.data.followers
                     console.log(followers);
-                    
-                    
-
-
+                    followers.each(this.getPhotos)
                 })
-
-                // var user = new User({id: user_id, fname: user_firstname, lname: user_lastname, login_url: that.url});
             });
         });
+    },
+
+    addPhotos: function(user) {
+        console.log(user);
     }
 });
