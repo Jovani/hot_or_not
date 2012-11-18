@@ -25,7 +25,7 @@ var AppView = Backbone.View.extend({
                 var user_lastname = response.data.user.lastname;
                 console.log(user_id, user_firstname, user_lastname)
 
-                _500px.api('/users/:',user_id,'/followers', function (response) {
+                _500px.api('/users/:'+user_id+'/followers', function (response) {
                     console.log(response);
 
 
