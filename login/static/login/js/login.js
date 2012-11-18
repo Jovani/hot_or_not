@@ -4,8 +4,8 @@ $(document).ready(function() {
     });
 
     _500px.on('authorization_obtained', function() {
-        $('not_logged_in').hide();
-        $('#logged_in').show();
+        $('#not_logged_in').hide();
+        // $('#logged_in').show();
     })
     _500px.getAuthorizationStatus();
 
