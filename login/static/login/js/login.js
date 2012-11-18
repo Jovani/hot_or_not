@@ -4,8 +4,7 @@ $(function() {
     });
 
     _500px.on('authorization_obtained', function() {
-        $('#not_logged_in').hide();
-        // $('#logged_in').show();
+        window.location.href = 'http://www.google.ca'
     })
     _500px.getAuthorizationStatus();
 
