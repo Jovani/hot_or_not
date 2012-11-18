@@ -6,6 +6,7 @@ var User = Backbone.Model.extend({
         // this.fname = options.fname;
         // this.lname = options.lname;
         // this.id = options.id;
+        console.log('options');
         console.log(options);
     },
     save_me: function(){
