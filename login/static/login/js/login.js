@@ -1,9 +1,16 @@
+var App = {}
+
 var User = Backbone.Model.extend({
     initialize: function(options) {
-        this.url = options.login_url;
+        // this.url = options.login_url;
+        // this.fname = options.fname;
+        // this.lname = options.lname;
+        // this.id = options.id;
         console.log(options);
-        this.save({id: options.id, fname: options.fname, lname: options.lname});
-    }
+    },
+    save_me: function()({
+        this.save({id: this.id, fname: this.fname, lname: this.lname});
+    })
 })
 
 var Users = Backbone.Collection.extend({
@@ -14,7 +21,9 @@ var AppView = Backbone.View.extend({
     initialize: function(args) {
         console.log('appview');
         var that = this
+
         this.url = args.url
+        App.url = this.url
 
         console.log(this.url)
         _500px.init({
@@ -42,6 +51,6 @@ var AppView = Backbone.View.extend({
     },
 
     addPhotos: function(user) {
-        console.log(user);
+        
     }
 });
