@@ -20,7 +20,7 @@ var Users = Backbone.Collection.extend({
 
 var AppView = Backbone.View.extend({
     initialize: function(args) {
-        console.log('appview');
+        _.bindAll(this);
         var that = this
 
         this.url = args.url
