@@ -1,6 +1,8 @@
 from django.views.generic import TemplateView
 from utils.json_response import JSONResponseOnDemandMixin
+from django.views.decorators.csrf import csrf_protect
 
+@csrf_protect
 class LoginView(TemplateView, JSONResponseOnDemandMixin):
 	template_name='login/log_in.html'
 
