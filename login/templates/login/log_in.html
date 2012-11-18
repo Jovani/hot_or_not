@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block javascript %}
+    <script type="text/javascript" src='{{ STATIC_URL }}js/500px.js'></script>
+    <script type="text/javascript" src='{{ STATIC_URL }}login/js/login.js'></script>
+{% endblock %}
+
+
+{% block content %}
+    <div id='not_logged_in'>
+        <a href="#" id='login'>Log In</a>    
+    </div>
+{% endblock %}

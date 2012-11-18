@@ -1,0 +1,1 @@
+/Users/ivand/Documents/hot_or_not/login/static/login/js/login.js
