@@ -6,6 +6,10 @@ var User = Backbone.Model.extend({
     }
 })
 
+var Users = Backbone.Colletion.extend({
+    model: User
+})
+
 var AppView = Backbone.View.extend({
     initialize: function(args) {
         console.log('appview');
@@ -27,8 +31,11 @@ var AppView = Backbone.View.extend({
 
                 _500px.api('/users/'+user_id+'/followers', function (response) {
                     var followers = response.data.followers
-                    console.log(followers);
-                    followers.each(this.getPhotos)
+                    this.followers = new Users;
+                    this.followers.bind('reset', addPhotos);
+                    this.followers.reset(followers)
+                    // console.log(followers);
+                    // followers.each(this.getPhotos)
                 })
             });
         });
