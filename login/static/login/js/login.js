@@ -1,4 +1,4 @@
-$(document).ready(function() {
+$(function() {
     _500px.init({
         sdk_key: '5318bce8cc510bcc7f48a74feab6d6bc18d7d944'
     });
