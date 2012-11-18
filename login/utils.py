@@ -2,9 +2,9 @@ from django.http import HttpResponse, HttpResponseNotFound
 
 import datetime
 from decimal import Decimal
-import simplejson
+import json
 
-class JSONEncoder(simplejson.JSONEncoder):
+class JSONEncoder(json.JSONEncoder):
     '''
     Extended JSON Encoder which can handle more than primative types
     such as dates and Decimals.
@@ -19,7 +19,7 @@ class JSONEncoder(simplejson.JSONEncoder):
         elif isinstance(obj, Decimal):
             return float(obj)
         else:
-            return simplejson.JSONEncoder.default(self, obj)
+            return json.JSONEncoder.default(self, obj)
 
 def encode_json(data):
     return JSONEncoder().encode(data)
