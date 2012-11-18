@@ -1,17 +1,18 @@
 from django.views.generic import TemplateView
 from utils.json_response import JSONResponseOnDemandMixin
-from django.views.decorators.csrf import csrf_protect
+from django.views.decorators.csrf import csrf_exempt                                          
+
 
 
 class LoginView(TemplateView, JSONResponseOnDemandMixin):
 	template_name='login/log_in.html'
-	@csrf_protect
+	@csrf_exempt
 	def get_context_data(self, **kwargs):
 		context = super(LoginView, self).get_context_data(**kwargs)
 		context['header'] = 'Log In to 500px!'
 
 		return context
-	@csrf_protect
+	@csrf_exempt
 	def put(self, request, **kwargs):
 		if request.body:
 			return self.render_json_response({'success': True})
