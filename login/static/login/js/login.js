@@ -51,7 +51,7 @@ var AppView = Backbone.View.extend({
         });
     },
 
-    addPhotos: function(user) {
-
+    addPhotos: function(followers) {
+        console.log(followers)
     }
 });
