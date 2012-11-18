@@ -8,3 +8,8 @@ class LoginView(TemplateView):
 		context['header'] = 'Log In to 500px!'
 
 		return context
+
+	def put(self, request, **kwargs):
+		if request.body:
+			pass
+		pass
