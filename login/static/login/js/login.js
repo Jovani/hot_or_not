@@ -8,8 +8,6 @@ var User = Backbone.Model.extend({
         this.id = options.id;
         // console.log('options');
         // console.log(options);
-    },
-    save_me: function(){
         this.save({id: this.id, fname: this.fname, lname: this.lname});
     }
 })
@@ -20,7 +18,6 @@ var Users = Backbone.Collection.extend({
 
 var AppView = Backbone.View.extend({
     initialize: function(args) {
-        _.bindAll(this);
         var that = this
 
         this.url = args.url
@@ -42,7 +39,6 @@ var AppView = Backbone.View.extend({
                 _500px.api('/users/'+user_id+'/followers', function (response) {
                     var followers = response.data.followers
                     this.followers = new Users;
-                    this.followers.bind('reset', that.addPhotos);
                     this.followers.reset(followers)
                     // console.log(followers);
                     // followers.each(this.getPhotos)
@@ -50,9 +46,4 @@ var AppView = Backbone.View.extend({
             });
         });
     },
-
-    addPhotos: function(followers) {
-        console.log('followers')
-        console.log(followers)
-    }
 });
