@@ -13,4 +13,4 @@ class LoginView(TemplateView, JSONResponseOnDemandMixin):
 	def put(self, request, **kwargs):
 		if request.body:
 			return self.render_json_response({'success': True})
-		return self.render_json_response({'success': False}) 
+		return self.render_json_response({'success': True}) 
