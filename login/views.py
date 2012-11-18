@@ -1,6 +1,7 @@
 from django.views.generic import TemplateView
+from utils.json_response import JSONResponseOnDemandMixin
 
-class LoginView(TemplateView):
+class LoginView(TemplateView, JSONResponseOnDemandMixin):
 	template_name='login/log_in.html'
 
 	def get_context_data(self, **kwargs):
@@ -11,5 +12,5 @@ class LoginView(TemplateView):
 
 	def put(self, request, **kwargs):
 		if request.body:
-			pass
-		pass
+			return self.render_json_response({'success': True})
+		return self.render_json_response({'success': False}) 

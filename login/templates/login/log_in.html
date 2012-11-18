@@ -1,8 +1,21 @@
 {% extends "base.html" %}
+{% load url from future %}
+
 
 {% block javascript %}
+    <script type="text/javascript" src='{{ STATIC_URL }}js/underscore-min.js'></script>
+    <script type="text/javascript" src='{{ STATIC_URL }}js/backbone-min.js'></script>
     <script type="text/javascript" src='{{ STATIC_URL }}js/500px.js'></script>
     <script type="text/javascript" src='{{ STATIC_URL }}login/js/login.js'></script>
+	<script type="text/javascript">
+		$(function() {
+			console.log('html early');
+			var app = new AppView({
+				url: "{% url 'log_in' %}"
+			})
+			console.log('html');
+		});
+	</script>
 {% endblock %}
 
 

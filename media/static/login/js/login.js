@@ -1,0 +1,1 @@
+/home/admin/apps/hot_or_not/login/static/login/js/login.js
