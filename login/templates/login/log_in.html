@@ -3,6 +3,7 @@
 
 
 {% block javascript %}
+    {{ block super }}
     <script type="text/javascript" src='{{ STATIC_URL }}js/underscore-min.js'></script>
     <script type="text/javascript" src='{{ STATIC_URL }}js/backbone-min.js'></script>
     <script type="text/javascript" src='{{ STATIC_URL }}js/500px.js'></script>
