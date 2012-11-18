@@ -6,7 +6,7 @@ var User = Backbone.Model.extend({
     }
 })
 
-var Users = Backbone.Colletion.extend({
+var Users = Backbone.Collection.extend({
     model: User
 })
 
