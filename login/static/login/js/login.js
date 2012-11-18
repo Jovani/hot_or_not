@@ -8,9 +8,9 @@ var User = Backbone.Model.extend({
         // this.id = options.id;
         console.log(options);
     },
-    save_me: function()({
+    save_me: function(){
         this.save({id: this.id, fname: this.fname, lname: this.lname});
-    })
+    }
 })
 
 var Users = Backbone.Collection.extend({
@@ -51,6 +51,6 @@ var AppView = Backbone.View.extend({
     },
 
     addPhotos: function(user) {
-        
+
     }
 });
