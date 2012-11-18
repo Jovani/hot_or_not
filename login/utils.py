@@ -2,7 +2,6 @@ from django.http import HttpResponse, HttpResponseNotFound
 
 import datetime
 from decimal import Decimal
-from currencies.models import Currency
 import simplejson
 
 class JSONEncoder(simplejson.JSONEncoder):
@@ -19,8 +18,6 @@ class JSONEncoder(simplejson.JSONEncoder):
             return obj.isoformat()
         elif isinstance(obj, Decimal):
             return float(obj)
-        elif isinstance(obj, Currency):
-            return obj.code
         else:
             return simplejson.JSONEncoder.default(self, obj)
 
