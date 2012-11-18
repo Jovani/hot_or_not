@@ -1,5 +1,32 @@
-from project_utils.json_encoder import JSONEncoder
 from django.http import HttpResponse, HttpResponseNotFound
+
+import datetime
+from decimal import Decimal
+from currencies.models import Currency
+import simplejson
+
+class JSONEncoder(simplejson.JSONEncoder):
+    '''
+    Extended JSON Encoder which can handle more than primative types
+    such as dates and Decimals.
+    '''
+    def default(self, obj):
+        if isinstance(obj, datetime.datetime):
+            return obj.isoformat()
+        elif isinstance(obj, datetime.date):
+            return obj.isoformat()
+        elif isinstance(obj, datetime.time):
+            return obj.isoformat()
+        elif isinstance(obj, Decimal):
+            return float(obj)
+        elif isinstance(obj, Currency):
+            return obj.code
+        else:
+            return simplejson.JSONEncoder.default(self, obj)
+
+def encode_json(data):
+    return JSONEncoder().encode(data)
+
 
 class JsonResponse(HttpResponse):
     def __init__(self, data):
