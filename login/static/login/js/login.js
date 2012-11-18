@@ -4,8 +4,13 @@ $(function() {
     });
 
     _500px.on('authorization_obtained', function() {
-        window.location.href = 'http://www.google.ca'
-    })
+        // window.location.href = 'http://www.google.ca'
+        console.log(self);
+        _500px.api('/users', function (response) {
+        	console.log(response.user);
+        });
+
+    });
     _500px.getAuthorizationStatus();
 
     $('#login').click(_500px.login);
