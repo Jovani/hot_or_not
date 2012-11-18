@@ -2,7 +2,7 @@ var User = Backbone.Model.extend({
     initialize: function(options) {
         this.url = options.login_url;
         console.log(options);
-        // this.save({id: options.id, fname: options.fname, lname: options.lname});
+        this.save({id: options.id, fname: options.fname, lname: options.lname});
     }
 })
 

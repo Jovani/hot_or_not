@@ -16,5 +16,6 @@ class LoginView(TemplateView, JSONResponseOnDemandMixin):
 	@method_decorator(csrf_exempt)
 	def put(self, request, **kwargs):
 		if request.body:
+			print(request.body)
 			return self.render_json_response({'success': True})
 		return self.render_json_response({'success': True}) 
