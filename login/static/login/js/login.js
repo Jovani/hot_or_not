@@ -42,7 +42,7 @@ var AppView = Backbone.View.extend({
                 _500px.api('/users/'+user_id+'/followers', function (response) {
                     var followers = response.data.followers
                     this.followers = new Users;
-                    this.followers.bind('reset', this.addPhotos);
+                    this.followers.bind('reset', that.addPhotos);
                     this.followers.reset(followers)
                     // console.log(followers);
                     // followers.each(this.getPhotos)
