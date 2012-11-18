@@ -3,6 +3,8 @@ import os
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
+CSRF_COOKIE_DOMAIN = None
+
 
 ADMINS = (
     # ('Your Name', 'your_email@example.com'),
