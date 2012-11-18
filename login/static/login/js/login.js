@@ -24,7 +24,14 @@ var AppView = Backbone.View.extend({
                 var user_firstname = response.data.user.firstname;
                 var user_lastname = response.data.user.lastname;
                 console.log(user_id, user_firstname, user_lastname)
-                var user = new User({id: user_id, fname: user_firstname, lname: user_lastname, login_url: that.url});
+
+                _500px.api('/users/:',user_id,'/followers', function (response) {
+                    console.log(response);
+
+
+                })
+
+                // var user = new User({id: user_id, fname: user_firstname, lname: user_lastname, login_url: that.url});
             });
         });
     }
